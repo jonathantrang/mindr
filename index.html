@@ -18,6 +18,34 @@
   <header>
   </header>
   <main>
+    <div data-view="entry-form">
+      <form class="container">
+        <div class="row">
+          <div class="column-full">
+            <h2 class="code-journal-tab">Code Journal</h2>
+          </div>
+          <div class="column-full">
+            <h1 class="heading">New Entry</h1>
+          </div>
+          <div class="image column-full">
+            <input type="file" onchange="previewFile()">
+          </div>
+          <div class="column-full">
+            <h3 class="sub-heading">Title</h3>
+            <input class="title" type="text" required>
+          </div>
+          <div class="column-full">
+            <h3 class="sub-heading">Photo URL</h3>
+            <input class="photo-url" type="text" required>
+          </div>
+          <div class="column-full">
+            <h3 class="subheading">Notes</h3>
+            <input type="text" required>
+          </div>
+          <button class="">SAVE</button>
+        </div>
+      </form>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
