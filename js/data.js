@@ -5,7 +5,6 @@ var data = {
   editing: null,
   nextEntryId: 1
 };
-
 var previousData = localStorage.getItem('code-journal');
 
 if (previousData !== null) {

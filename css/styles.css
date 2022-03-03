@@ -17,6 +17,7 @@
   object-fit: cover;
   height: 300px;
   width: 100%;
+  margin: 18px 0;
 }
 
 .input {
