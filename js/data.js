@@ -13,7 +13,7 @@ if (previousData !== null) {
 }
 
 function windowBeforeUnload(event) {
-  localStorage.setItem('code-journal-entries', JSON.stringify(data.entries));
+  localStorage.setItem('code-journal-entries', JSON.stringify(data));
 }
 
 window.addEventListener('beforeunload', windowBeforeUnload);
