@@ -9,7 +9,7 @@ var data = {
 var previousData = localStorage.getItem('code-journal-entries');
 
 if (previousData !== null) {
-  data.entries = JSON.parse(previousData);
+  data = JSON.parse(previousData);
 }
 
 function windowBeforeUnload(event) {
