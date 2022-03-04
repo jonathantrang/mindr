@@ -4,13 +4,13 @@
 
 .container {
   max-width: 575px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  margin: auto;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
+  padding: 0 1rem;
 }
 
 .column-full,

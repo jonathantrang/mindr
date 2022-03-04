@@ -14,10 +14,44 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <header>
+<body class="grey-background">
+  <header class="tab-background">
+    <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <h2 class="tab-heading">Code Journal</h2>
+        </div>
+      </div>
+    </div>
   </header>
   <main>
+    <div data-view="entry-form">
+      <form id="entry-form" class="container">
+        <div class="row view-background">
+          <div class="column-full">
+            <h1 class="heading">New Entry</h1>
+          </div>
+          <div class="column-half">
+            <img class="resize photo" src="images/placeholder-image-square.jpg">
+          </div>
+          <div class="column-half">
+            <h3 class="subheading">Title</h3>
+            <input class="input title" type="text" id="title" required>
+            <h3 class="subheading">Photo URL</h3>
+            <input class="input photo-url" type="text" id="photo-url" required>
+          </div>
+          <div class="column-full">
+            <h3 class="subheading">Notes</h3>
+            <textarea class="input notes" cols="10" rows="10" id="notes" required></textarea>
+          </div>
+          <div class="column-full">
+            <div class="right-button">
+              <button class="save-button" type="submit">SAVE</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
