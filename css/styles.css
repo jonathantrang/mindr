@@ -5,7 +5,6 @@
 
 .tab-heading {
   font-family: sans-serif;
-  font-size: 22px;
   font-weight: 300;
 }
 
@@ -15,9 +14,9 @@
 
 .resize {
   object-fit: cover;
-  height: 300px;
   width: 100%;
   margin: 18px 0;
+  padding: 0;
 }
 
 .input {
@@ -27,14 +26,19 @@
 
 .heading {
   font-family: sans-serif;
-  font-size: 32px;
   font-weight: 550;
 }
 
 .subheading {
   font-family: sans-serif;
-  font-size: 18px;
   font-weight: 550;
+}
+
+.text-content {
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  padding: 0 0 1rem;
 }
 
 .right-button {
@@ -42,11 +46,27 @@
   padding: 1rem 0;
 }
 
-.save-button {
+.button {
   background-color: #562b81;
   color: #fff;
   font-size: 16px;
   border: none;
   border-radius: 5px;
   padding: 0.5rem 1.25rem;
+}
+
+.entries-heading {
+  padding: 0;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+ul {
+  padding-inline-start: 0;
 }
