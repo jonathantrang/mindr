@@ -41,12 +41,17 @@
   padding: 0 0 1rem;
 }
 
-.right-button {
+.save-button-right {
   text-align: right;
-  padding: 1rem 0;
 }
 
-.button {
+.new-button-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.save-button {
   background-color: #562b81;
   color: #fff;
   font-size: 16px;
@@ -55,8 +60,14 @@
   padding: 0.5rem 1.25rem;
 }
 
-.entries-heading {
-  padding: 0;
+.new-button {
+  background-color: #562b81;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  justify-content: flex-end;
 }
 
 .align-center {
@@ -68,5 +79,9 @@
 }
 
 ul {
-  padding-inline-start: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
 }

@@ -25,5 +25,13 @@ function checkSubmit(event) {
   $form.reset();
 }
 
+function checkLoad(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    var render = 0;
+    console.log(render);
+  }
+}
+
 $form.addEventListener('submit', checkSubmit);
+window.addEventListener('DOMContentLoaded', checkLoad);
 $photoUrl.addEventListener('input', photoUpdate);

@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body class="grey-background">
   <header class="tab-background">
     <div class="container">
@@ -25,8 +26,8 @@
     </div>
   </header>
   <main>
-    <div data-view="entry-form">
-      <form id="entry-form" class="container hidden">
+    <div data-view="entry-form" class="hidden">
+      <form id="entry-form" class="container">
         <div class="row">
           <div class="column-full">
             <h1 class="heading">New Entry</h1>
@@ -44,64 +45,64 @@
             <h3 class="subheading">Notes</h3>
             <textarea class="input notes text-content" cols="5" rows="5" id="notes" required></textarea>
           </div>
-          <div class="column-full">
-            <div class="right-button">
-              <button class="button" type="submit">SAVE</button>
-            </div>
+          <div class="column-full save-button-right">
+              <button class="save-button" type="submit">SAVE</button>
           </div>
         </div>
       </form>
     </div>
-    <div data-view="entries">
-      <ul id="no-entries" class="container hidden">
-        <li class="row">
-          <div class="column-full">
+    <div data-view="entries" class="view">
+      <div id="entries" class="container">
+        <div class="row">
+          <div class="column-full new-button-right">
             <h1 class="heading">Entries</h1>
-            <button class="button" type="submit">NEW</button>
-        </li>
-        <li class="row">
-          <div class="column-full text-center">
-            <div class="text-content">
-              No entries have been recorded.
+            <button class="new-button" type="submit">NEW</button>
+          </div>
+        </div>
+      </div>
+      <div data-view="no-entries">
+        <ul class="container">
+          <li class="row">
+            <div class="column-full">
+              <div class="text-content text-center">
+                No entries have been recorded.
+              </div>
             </div>
-          </div>
-        </li>
-      </ul>
-      <ul id="yes-entries" class="container">
-        <li class="row">
-          <div class="column-full">
-            <h1 class="heading">Entries</h1>
-            <button class="button" type="submit">NEW</button>
-        </li>
-        <li class="row">
-          <div class="column-half">
-            <img class="column-half resize" src="images/placeholder-image-square.jpg"">
-          </div>
-          <div class="column-half">
-            <h3 class="subheading">Ada Lovelace</h3>
-            <div class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Sit accusantium assumenda nostrum cum maxime,
-              voluptatibus dignissimos commodi repellendus sequi non
-              aliquid inventore ipsum nisi itaque, minus exercitationem
-              voluptatum nulla odit.
+          </li>
+        </ul>
+      </div>
+      <div data-view="yes-entries">
+        <ul class="container">
+          <li class="row">
+            <div class="column-half">
+              <img class="column-half resize" src="images/placeholder-image-square.jpg">
             </div>
-          </div>
-        </li>
-        <li class="row">
-          <div class="column-half">
-            <img class="column-half resize" src="images/placeholder-image-square.jpg"">
-          </div>
-          <div class=" column-half">
-            <h3 class="subheading">JavaScript</h3>
-            <div class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Sit accusantium assumenda nostrum cum maxime,
-              voluptatibus dignissimos commodi repellendus sequi non
-              aliquid inventore ipsum nisi itaque, minus exercitationem
-              voluptatum nulla odit.
+            <div class="column-half">
+              <h3 class="subheading">Ada Lovelace</h3>
+              <div class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Sit accusantium assumenda nostrum cum maxime,
+                voluptatibus dignissimos commodi repellendus sequi non
+                aliquid inventore ipsum nisi itaque, minus exercitationem
+                voluptatum nulla odit.
+              </div>
             </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+          <li class="row">
+            <div class="column-half">
+              <img class="column-half resize" src="images/placeholder-image-square.jpg">
+            </div>
+            <div class="column-half">
+              <h3 class="subheading">JavaScript</h3>
+              <div class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Sit accusantium assumenda nostrum cum maxime,
+                voluptatibus dignissimos commodi repellendus sequi non
+                aliquid inventore ipsum nisi itaque, minus exercitationem
+                voluptatum nulla odit.
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>
