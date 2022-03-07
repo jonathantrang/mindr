@@ -31,6 +31,9 @@ $form.addEventListener('submit', function (event) {
   $photoUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
   changeView('entries');
+  if (data.entries.length > 0) {
+    $p.setAttribute('class', 'hidden');
+  }
 });
 
 $entriesTab.addEventListener('click', function (event) {
@@ -76,10 +79,6 @@ function renderEntry(submission) {
   $columnSecondHalf.appendChild($p);
 
   return $li;
-}
-
-if (data.entries.length > 0) {
-  $p.setAttribute('class', 'hidden');
 }
 
 function changeView(view) {
