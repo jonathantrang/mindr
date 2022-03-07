@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,96 +16,50 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="grey-background">
-  <header class="tab-background">
+<body>
+  <header>
     <div class="container">
       <div class="row">
         <div class="column-full">
-          <h2 class="tab-heading">Code Journal</h2>
+          <h2>Code Journal</h2>
+          <a class="tab" href="#" data-view="entries">Entries</a>
         </div>
       </div>
     </div>
   </header>
-  <main>
-    <div data-view="entry-form" class="hidden">
-      <form id="entry-form" class="container">
-        <div class="row">
-          <div class="column-full">
-            <h1 class="heading">New Entry</h1>
-          </div>
-          <div class="column-half">
-            <img class="resize photo" src="images/placeholder-image-square.jpg">
-          </div>
-          <div class="column-half">
-            <h3 class="subheading">Title</h3>
-            <input class="input title" type="text" id="title" required>
-            <h3 class="subheading">Photo URL</h3>
-            <input class="input photo-url" type="text" id="photo-url" required>
-          </div>
-          <div class="column-full">
-            <h3 class="subheading">Notes</h3>
-            <textarea class="input notes text-content" cols="5" rows="5" id="notes" required></textarea>
-          </div>
-          <div class="column-full save-button-right">
-              <button class="save-button" type="submit">SAVE</button>
-          </div>
+  <main class="container">
+    <form class="view" data-view="entry-form">
+      <div class="row">
+        <div class="column-full">
+          <h1>New Entry</h1>
         </div>
-      </form>
-    </div>
-    <div data-view="entries" class="view">
-      <div id="entries" class="container">
-        <div class="row">
-          <div class="column-full new-button-right">
-            <h1 class="heading">Entries</h1>
-            <button class="new-button" type="submit">NEW</button>
-          </div>
+        <div class="column-half">
+          <img class="photo" src="images/placeholder-image-square.jpg">
+        </div>
+        <div class="column-half title-margin">
+          <h3>Title</h3>
+          <input class="title" type="text" id="title" required>
+          <h3>Photo URL</h3>
+          <input class="photo-url" type="text" id="photo-url" required>
+        </div>
+        <div class="column-full">
+          <h3>Notes</h3>
+          <textarea class="notes" rows="6" id="notes" required></textarea>
+          <button>SAVE</button>
         </div>
       </div>
-      <div data-view="no-entries">
-        <ul class="container">
-          <li class="row">
-            <div class="column-full">
-              <div class="text-content text-center">
-                No entries have been recorded.
-              </div>
-            </div>
-          </li>
-        </ul>
+    </form>
+
+    <div class="view hidden" data-view="entries">
+      <div class="column-full margin-top">
+        <h1>Entries</h1>
+        <button class="new-button" type="submit">NEW</button>
+        <p class="text-center margin-top">No entries have been recorded.</p>
       </div>
-      <div data-view="yes-entries">
-        <ul class="container">
-          <li class="row">
-            <div class="column-half">
-              <img class="column-half resize" src="images/placeholder-image-square.jpg">
-            </div>
-            <div class="column-half">
-              <h3 class="subheading">Ada Lovelace</h3>
-              <div class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Sit accusantium assumenda nostrum cum maxime,
-                voluptatibus dignissimos commodi repellendus sequi non
-                aliquid inventore ipsum nisi itaque, minus exercitationem
-                voluptatum nulla odit.
-              </div>
-            </div>
-          </li>
-          <li class="row">
-            <div class="column-half">
-              <img class="column-half resize" src="images/placeholder-image-square.jpg">
-            </div>
-            <div class="column-half">
-              <h3 class="subheading">JavaScript</h3>
-              <div class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Sit accusantium assumenda nostrum cum maxime,
-                voluptatibus dignissimos commodi repellendus sequi non
-                aliquid inventore ipsum nisi itaque, minus exercitationem
-                voluptatum nulla odit.
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
+      <ul></ul>
     </div>
   </main>
+
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
