@@ -24,7 +24,6 @@ $form.addEventListener('submit', function (event) {
     notes: $notes.value,
     entryId: data.nextEntryId
   };
-  submission.entryId = data.nextEntryId;
   data.nextEntryId++;
   data.entries.push(submission);
   $ul.prepend(renderEntry(submission));
