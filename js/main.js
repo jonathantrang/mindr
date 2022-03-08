@@ -40,6 +40,10 @@ $newButton.addEventListener('click', function (event) {
   changeView('entry-form');
 });
 
+$ul.addEventListener('click', function (event) {
+
+});
+
 document.addEventListener('DOMContentLoaded', function (event) {
   changeView(data.view);
   for (var i = 0; i < data.entries.length; i++) {
