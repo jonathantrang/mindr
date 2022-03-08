@@ -73,6 +73,10 @@ function renderEntry(submission) {
   $h3.textContent = submission.title;
   $columnSecondHalf.appendChild($h3);
 
+  var $editIcon = document.createElement('i');
+  $editIcon.className = 'fas fa-pen';
+  $columnSecondHalf.appendChild($editIcon);
+
   var $p = document.createElement('p');
   $p.textContent = submission.notes;
   $columnSecondHalf.appendChild($p);
