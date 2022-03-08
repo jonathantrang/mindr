@@ -19,15 +19,25 @@ $photoUrl.addEventListener('input', function (event) {
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
-  var submission = {
-    title: $title.value,
-    photoUrl: $photoUrl.value,
-    notes: $notes.value,
-    entryId: data.nextEntryId
-  };
-  data.nextEntryId++;
-  data.entries.push(submission);
-  $ul.prepend(renderEntry(submission));
+  if (data.editing === null) {
+    var submission = {
+      title: $title.value,
+      photoUrl: $photoUrl.value,
+      notes: $notes.value,
+      entryId: data.nextEntryId
+    };
+    data.nextEntryId++;
+    data.entries.push(submission);
+    $ul.prepend(renderEntry(submission));
+  } else {
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.editing === data.entries[i].entryId) {
+        data.entries[i].title = $title.value;
+        data.entries[i].photoUrl = $photoUrl.value;
+        data.entries[i].notes = $notes.value;
+      }
+    }
+  }
   $photoUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
   changeView('entries');
