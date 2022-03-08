@@ -75,6 +75,11 @@ textarea {
   line-height: 1rem;
 }
 
+input:focus,
+textarea:focus {
+  border: solid 2px #562b81;
+}
+
 button {
   float: right;
   background-color: #562b81;
@@ -103,6 +108,15 @@ ul {
 .new-button {
   cursor: pointer;
   margin: 1rem 0;
+}
+
+.delete-button {
+  float: left;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  color: #e36766;
+  text-decoration: underline;
+  padding: 8px 0;
 }
 
 .text-center {

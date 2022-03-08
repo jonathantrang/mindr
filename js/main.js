@@ -9,6 +9,7 @@ var $photoUpdate = document.querySelector('.photo');
 var $entriesTab = document.querySelector('a');
 var $ul = document.querySelector('ul');
 var $newButton = document.querySelector('.new-button');
+var $deleteButton = document.querySelector('.delete-button');
 var $views = document.querySelectorAll('.view');
 var $h1 = document.querySelector('h1');
 var $noEntries = document.querySelector('.no-entries');
@@ -79,6 +80,7 @@ $ul.addEventListener('click', function (event) {
         $notes.value = data.entries[i].notes;
         $photoUpdate.setAttribute('src', $photoUrl.value);
         $h1.textContent = 'Edit Entry';
+        $deleteButton.className = 'delete-button';
       }
     }
   }
