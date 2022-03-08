@@ -11,6 +11,7 @@ var $p = document.querySelector('p');
 var $ul = document.querySelector('ul');
 var $newButton = document.querySelector('.new-button');
 var $views = document.querySelectorAll('.view');
+var $h1 = document.querySelector('h1');
 
 $photoUrl.addEventListener('input', function (event) {
   $photoUpdate.setAttribute('src', event.target.value);
@@ -37,6 +38,7 @@ $entriesTab.addEventListener('click', function (event) {
 });
 
 $newButton.addEventListener('click', function (event) {
+  $h1.textContent = 'New Entry';
   changeView('entry-form');
 });
 
@@ -45,6 +47,15 @@ $ul.addEventListener('click', function (event) {
     changeView('entry-form');
     var editCurrentEntry = parseInt(event.target.closest('li').getAttribute('data-entry-id'));
     data.editing = editCurrentEntry;
+    for (var i = 0; i < data.entries.length; i++) {
+      if (editCurrentEntry === data.entries[i].entryId) {
+        $title.value = data.entries[i].title;
+        $photoUrl.value = data.entries[i].photoUrl;
+        $notes.value = data.entries[i].notes;
+        $photoUpdate.setAttribute('src', $photoUrl.value);
+        $h1.textContent = 'Edit Entry';
+      }
+    }
   }
 });
 
