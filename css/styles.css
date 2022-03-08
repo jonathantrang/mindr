@@ -41,6 +41,7 @@ p {
   font-family: sans-serif;
   margin: 0 0 1rem;
   white-space: pre-line;
+  text-align: center;
 }
 
 i {
@@ -80,17 +81,6 @@ textarea:focus {
   border: solid 2px #562b81;
 }
 
-button {
-  float: right;
-  background-color: #562b81;
-  color: #fff;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  padding: 0.5rem 1.25rem;
-  margin-bottom: 1rem;
-}
-
 ul {
   list-style: none;
   margin: 0;
@@ -101,8 +91,40 @@ ul {
   display: inline-block;
 }
 
-.entries-margin {
-  margin: 1rem 0 2rem;
+.modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: #fff;
+  position: fixed;
+  top: 30%;
+  z-index: 1;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+button {
+  float: right;
+  background-color: #562b81;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .new-button {
@@ -116,9 +138,27 @@ ul {
   background-color: #f0f0f0;
   color: #e36766;
   text-decoration: underline;
-  padding: 8px 0;
+  padding: 0.5rem 0;
 }
 
-.text-center {
-  text-align: center;
+.cancel-button {
+  float: left;
+  cursor: pointer;
+  background-color: #b6b6b6;
+  color: #292929;
+  padding: 0.5rem 0.75rem;
+  margin: 1rem 0 0;
+}
+
+.confirm-button {
+  float: right;
+  cursor: pointer;
+  background-color: #dc2625;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  margin: 1rem 0 0;
+}
+
+.entries-margin {
+  margin: 1rem 0 2rem;
 }

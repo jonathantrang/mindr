@@ -10,12 +10,14 @@ var $entriesTab = document.querySelector('a');
 var $ul = document.querySelector('ul');
 var $newButton = document.querySelector('.new-button');
 var $deleteButton = document.querySelector('.delete-button');
-var $views = document.querySelectorAll('.view');
 var $h1 = document.querySelector('h1');
 var $noEntries = document.querySelector('.no-entries');
+var $views = document.querySelectorAll('.view');
 
-$photoUrl.addEventListener('input', function (event) {
-  $photoUpdate.setAttribute('src', event.target.value);
+$newButton.addEventListener('click', function (event) {
+  $h1.textContent = 'New Entry';
+  changeView('entry-form');
+  data.editing = null;
 });
 
 $form.addEventListener('submit', function (event) {
@@ -58,14 +60,12 @@ $form.addEventListener('submit', function (event) {
   return false;
 });
 
-$entriesTab.addEventListener('click', function (event) {
-  changeView('entries');
+$photoUrl.addEventListener('input', function (event) {
+  $photoUpdate.setAttribute('src', event.target.value);
 });
 
-$newButton.addEventListener('click', function (event) {
-  $h1.textContent = 'New Entry';
-  changeView('entry-form');
-  data.editing = null;
+$entriesTab.addEventListener('click', function (event) {
+  changeView('entries');
 });
 
 $ul.addEventListener('click', function (event) {
