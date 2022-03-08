@@ -51,8 +51,9 @@ $form.addEventListener('submit', function (event) {
     }
   }
   $photoUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $noEntries.className = 'text-center no-entries hidden';
   changeView('entries');
-  location.reload();
+  $form.reset();
   return false;
 });
 
@@ -87,9 +88,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
   changeView(data.view);
   for (var i = 0; i < data.entries.length; i++) {
     $ul.appendChild(renderEntry(data.entries[i]));
-  }
-  if (data.entries.length > 0) {
-    $noEntries.className = 'text-center no-entries hidden';
   }
 });
 
