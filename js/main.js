@@ -9,7 +9,11 @@ var $photoUpdate = document.querySelector('.photo');
 var $entriesTab = document.querySelector('a');
 var $ul = document.querySelector('ul');
 var $newButton = document.querySelector('.new-button');
+var $modal = document.querySelector('.modal-container');
+var $overlay = document.querySelector('.overlay');
 var $deleteButton = document.querySelector('.delete-button');
+var $cancelButton = document.querySelector('.cancel-button');
+var $confirmButton = document.querySelector('.confirm-button');
 var $h1 = document.querySelector('h1');
 var $noEntries = document.querySelector('.no-entries');
 var $views = document.querySelectorAll('.view');
@@ -83,6 +87,13 @@ $ul.addEventListener('click', function (event) {
         $deleteButton.className = 'delete-button';
       }
     }
+  }
+});
+
+$cancelButton.addEventListener('click', function (event) {
+  if ($cancelButton.className === 'cancel-button') {
+    $modal.className = 'modal-container hidden';
+    $overlay.className = 'overlay hidden';
   }
 });
 
