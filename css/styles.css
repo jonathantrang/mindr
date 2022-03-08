@@ -24,6 +24,7 @@ h2 {
 }
 
 h3 {
+  display: inline-block;
   font-size: 1.25rem;
   font-weight: 550;
   margin: 0 0 1rem;
@@ -39,6 +40,12 @@ a {
 p {
   font-family: sans-serif;
   margin-bottom: 1rem;
+}
+
+i {
+  color: #562b81;
+  font-size: 1.25rem;
+  float: right;
 }
 
 img,
@@ -83,13 +90,17 @@ ul {
   padding: 0;
 }
 
-.margin-top {
-  margin-top: 1rem;
+.fas {
+  display: inline-block;
+}
+
+.entries-margin {
+  margin: 1rem 0 2rem;
 }
 
 .new-button {
   cursor: pointer;
-  margin-top: 14px;
+  margin: 1rem 0;
 }
 
 .text-center {
