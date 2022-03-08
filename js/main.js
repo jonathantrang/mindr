@@ -41,7 +41,9 @@ $newButton.addEventListener('click', function (event) {
 });
 
 $ul.addEventListener('click', function (event) {
-
+  if (event.target.nodeName === 'I') {
+    changeView('entry-form');
+  }
 });
 
 document.addEventListener('DOMContentLoaded', function (event) {
