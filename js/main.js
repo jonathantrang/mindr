@@ -21,12 +21,9 @@ var $views = document.querySelectorAll('.view');
 $newButton.addEventListener('click', function (event) {
   $h1.textContent = 'New Entry';
   changeView('entry-form');
+  $deleteButton.className = 'delete-button hidden';
   data.editing = null;
 });
-
-if (data.entries.length > 0) {
-  $noEntries.className = 'no-entries text-center hidden';
-}
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -60,6 +57,7 @@ $form.addEventListener('submit', function (event) {
         $lis[i].replaceWith(editDomTree);
       }
     }
+
   }
   $photoUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
   $noEntries.className = 'text-center no-entries hidden';
@@ -73,6 +71,8 @@ $photoUrl.addEventListener('input', function (event) {
 
 $entriesTab.addEventListener('click', function (event) {
   changeView('entries');
+  $photoUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $form.reset();
 });
 
 $ul.addEventListener('click', function (event) {
@@ -113,16 +113,20 @@ $confirmButton.addEventListener('click', function (event) {
   }
   var $li = document.querySelectorAll('li');
   for (i = 0; i < $li.length; i++) {
-    if ($li[i].getAttribute('entry-id') === data.editing) {
+    var liDataEntryId = $li[i].getAttribute('data-entry-id');
+    var dataEdit = data.editing;
+    if (liDataEntryId == dataEdit) {
       $li[i].remove();
     }
   }
   $modal.className = 'modal-container hidden';
   $overlay.className = 'overlay hidden';
+  $photoUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $form.reset();
   changeView('entries');
   if (data.entries.length > 0) {
     $noEntries.className = 'no-entries text-center hidden';
-  }
+  } else $noEntries.className = 'no-entries text-center';
 });
 
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -177,3 +181,7 @@ function changeView(view) {
   }
   data.view = view;
 }
+
+if (data.entries.length > 0) {
+  $noEntries.className = 'no-entries text-center hidden';
+} else $noEntries.className = 'no-entries text-center';
