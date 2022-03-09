@@ -30,7 +30,7 @@
   <main class="container">
     <form class="view" data-view="entry-form">
       <div class="row">
-        <div class="column-full">
+        <div class="column-full entries-margin">
           <h1>New Entry</h1>
         </div>
         <div class="column-half">
@@ -38,13 +38,14 @@
         </div>
         <div class="column-half title-margin">
           <h3>Title</h3>
-          <input class="title" type="text" id="title" required>
+          <input class="user-input title" type="text" id="title" required>
           <h3>Photo URL</h3>
-          <input class="photo-url" type="text" id="photo-url" required>
+          <input class="user-input photo-url" type="text" id="photo-url" required>
         </div>
         <div class="column-full">
           <h3>Notes</h3>
-          <textarea class="notes" rows="6" id="notes" required></textarea>
+          <textarea class="user-input notes" rows="6" id="notes" required></textarea>
+          <button class="delete-button hidden">Delete Entry</button>
           <button>SAVE</button>
         </div>
       </div>
@@ -54,10 +55,22 @@
       <div class="column-full entries-margin">
         <h1>Entries</h1>
         <button class="new-button" type="submit">NEW</button>
-        <p class="text-center no-entries">No entries have been recorded.</p>
+        <p class="no-entries text-center">No entries have been recorded.</p>
       </div>
       <ul></ul>
     </div>
+
+    <div class="modal-container hidden">
+      <div class="modal">
+        <div class="column-full entries-margin text-center">
+          <p>Are you sure you want to delete this entry?</p>
+          <button class="cancel-button">CANCEL</button>
+          <button class="confirm-button">CONFIRM</button>
+        </div>
+      </div>
+    </div>
+    <div class="overlay hidden"></div>
+
   </main>
 
   <script src="js/data.js"></script>

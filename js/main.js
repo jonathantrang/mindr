@@ -9,12 +9,20 @@ var $photoUpdate = document.querySelector('.photo');
 var $entriesTab = document.querySelector('a');
 var $ul = document.querySelector('ul');
 var $newButton = document.querySelector('.new-button');
-var $views = document.querySelectorAll('.view');
+var $modal = document.querySelector('.modal-container');
+var $overlay = document.querySelector('.overlay');
+var $deleteButton = document.querySelector('.delete-button');
+var $cancelButton = document.querySelector('.cancel-button');
+var $confirmButton = document.querySelector('.confirm-button');
 var $h1 = document.querySelector('h1');
 var $noEntries = document.querySelector('.no-entries');
+var $views = document.querySelectorAll('.view');
 
-$photoUrl.addEventListener('input', function (event) {
-  $photoUpdate.setAttribute('src', event.target.value);
+$newButton.addEventListener('click', function (event) {
+  $h1.textContent = 'New Entry';
+  changeView('entry-form');
+  $deleteButton.className = 'delete-button hidden';
+  data.editing = null;
 });
 
 $form.addEventListener('submit', function (event) {
@@ -49,22 +57,22 @@ $form.addEventListener('submit', function (event) {
         $lis[i].replaceWith(editDomTree);
       }
     }
+
   }
   $photoUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
   $noEntries.className = 'text-center no-entries hidden';
   changeView('entries');
   $form.reset();
-  return false;
+});
+
+$photoUrl.addEventListener('input', function (event) {
+  $photoUpdate.setAttribute('src', event.target.value);
 });
 
 $entriesTab.addEventListener('click', function (event) {
   changeView('entries');
-});
-
-$newButton.addEventListener('click', function (event) {
-  $h1.textContent = 'New Entry';
-  changeView('entry-form');
-  data.editing = null;
+  $photoUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $form.reset();
 });
 
 $ul.addEventListener('click', function (event) {
@@ -79,9 +87,46 @@ $ul.addEventListener('click', function (event) {
         $notes.value = data.entries[i].notes;
         $photoUpdate.setAttribute('src', $photoUrl.value);
         $h1.textContent = 'Edit Entry';
+        $deleteButton.className = 'delete-button';
       }
     }
   }
+});
+
+$deleteButton.addEventListener('click', function (event) {
+  event.preventDefault();
+  $modal.className = 'modal-container';
+  $overlay.className = 'overlay';
+});
+
+$cancelButton.addEventListener('click', function (event) {
+  changeView('entry-form');
+  $modal.className = 'modal-container hidden';
+  $overlay.className = 'overlay hidden';
+});
+
+$confirmButton.addEventListener('click', function (event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.editing === data.entries[i].entryId) {
+      data.entries.splice(i, 1);
+    }
+  }
+  var $li = document.querySelectorAll('li');
+  for (i = 0; i < $li.length; i++) {
+    var liDataEntryId = $li[i].getAttribute('data-entry-id');
+    var dataEdit = data.editing;
+    if (liDataEntryId == dataEdit) {
+      $li[i].remove();
+    }
+  }
+  $modal.className = 'modal-container hidden';
+  $overlay.className = 'overlay hidden';
+  $photoUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $form.reset();
+  changeView('entries');
+  if (data.entries.length > 0) {
+    $noEntries.className = 'no-entries text-center hidden';
+  } else $noEntries.className = 'no-entries text-center';
 });
 
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -136,3 +181,7 @@ function changeView(view) {
   }
   data.view = view;
 }
+
+if (data.entries.length > 0) {
+  $noEntries.className = 'no-entries text-center hidden';
+} else $noEntries.className = 'no-entries text-center';
