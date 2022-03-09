@@ -24,6 +24,10 @@ $newButton.addEventListener('click', function (event) {
   data.editing = null;
 });
 
+if (data.entries.length > 0) {
+  $noEntries.className = 'no-entries text-center hidden';
+}
+
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
   if (data.editing === null) {
@@ -61,7 +65,6 @@ $form.addEventListener('submit', function (event) {
   $noEntries.className = 'text-center no-entries hidden';
   changeView('entries');
   $form.reset();
-  return false;
 });
 
 $photoUrl.addEventListener('input', function (event) {
@@ -90,10 +93,35 @@ $ul.addEventListener('click', function (event) {
   }
 });
 
+$deleteButton.addEventListener('click', function (event) {
+  event.preventDefault();
+  $modal.className = 'modal-container';
+  $overlay.className = 'overlay';
+});
+
 $cancelButton.addEventListener('click', function (event) {
-  if ($cancelButton.className === 'cancel-button') {
-    $modal.className = 'modal-container hidden';
-    $overlay.className = 'overlay hidden';
+  changeView('entry-form');
+  $modal.className = 'modal-container hidden';
+  $overlay.className = 'overlay hidden';
+});
+
+$confirmButton.addEventListener('click', function (event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.editing === data.entries[i].entryId) {
+      data.entries.splice(i, 1);
+    }
+  }
+  var $li = document.querySelectorAll('li');
+  for (i = 0; i < $li.length; i++) {
+    if ($li[i].getAttribute('entry-id') === data.editing) {
+      $li[i].remove();
+    }
+  }
+  $modal.className = 'modal-container hidden';
+  $overlay.className = 'overlay hidden';
+  changeView('entries');
+  if (data.entries.length > 0) {
+    $noEntries.className = 'no-entries text-center hidden';
   }
 });
 

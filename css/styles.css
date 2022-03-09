@@ -41,7 +41,6 @@ p {
   font-family: sans-serif;
   margin: 0 0 1rem;
   white-space: pre-line;
-  text-align: center;
 }
 
 i {
@@ -107,13 +106,13 @@ ul {
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.8);
-  opacity: 1;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
 }
 
 button {
@@ -161,4 +160,8 @@ button {
 
 .entries-margin {
   margin: 1rem 0 2rem;
+}
+
+.text-center {
+  text-align: center;
 }
